@@ -1,0 +1,20 @@
+[
+    {
+        "id": "b16ecd2b-596e-4453-a05c-fe10d6f1a4c2",
+        "name": "Bard Corkan",
+        "dept": "IT",
+        "emp_avatar": "https://robohash.org/reprehenderitatquelaboriosam.jpg?size=36x36&set=set1"
+    },
+    {
+        "id": "0d539301-9a36-4ae7-9a06-fe3fa38b7ddf",
+        "name": "Tony Stark",
+        "dept": "CEO",
+        "emp_avatar": "https://robohash.org/reprehenderitatquelaboriosam.jpg?size=36x36&set=set1"
+    },
+    {
+        "id": "33990e89-1d66-4079-b107-95ce8aead27e",
+        "name": "Johony Depp",
+        "dept": "Actor",
+        "emp_avatar": "https://robohash.org/reprehenderitatquelaboriosam.jpg?size=36x36&set=set1"
+    }
+]

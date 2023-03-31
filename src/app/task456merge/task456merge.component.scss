@@ -1,0 +1,197 @@
+*{
+	--bg1: rgb(40, 53, 56);//input area
+	--bg2: rgb(0, 170, 255);//control button
+	--bg3: rgba(255, 255, 255, 0.501);//table heading
+	--bg4: rgba(238, 247, 252, 0.303);//table even row
+	--bg8: rgba(223, 244, 255, 0.5);//table odd row
+	
+	--bg5: rgb(57, 255, 113);//add button	
+	--bg6: rgb(255, 44, 44);//delete button	
+	--bg7: rgb(23, 77, 255);//edit button
+
+	--shadow1: rgba(0, 0, 0, 0.644);
+	--shadow2: rgba(0, 0, 0, 0.423);
+	--textcolor1: white;//button text1
+	--textcolor2: rgb(157, 157, 157);//placeholder
+	--textcolor3: rgb(255, 255, 255);//inputarea
+	--textcolor4: black;
+}
+.heading{
+	text-align: center;
+	background-color: rgb(4, 80, 156);
+	height: 100px;
+	color: aliceblue;
+	font-size: 30px;
+	box-shadow: 0px 5px 10px var(--shadow1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+// Main Container
+.list{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+.list > *{
+	width: 60%;
+}
+// Main Control Frame
+.mcontroller-frame{
+	display: flex;
+	flex-direction: column;
+}
+
+//Button Control Frame
+.mcontroller-button-frame{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-top: 50px;
+}
+
+// Form
+.mform{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	// background-color: aquamarine;
+	box-shadow: 0 1px 5px 1px var(--shadow1);
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin-top: 20px;
+}
+.mform-entry{
+	padding: 5px;
+}
+.mform-field{
+	padding-right: 10px;
+	font-weight: bold;
+}
+.mform-button-box{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+//Table
+.mtable{
+	margin-top: 20px;
+	box-shadow: 0 0 10px 2px var(--shadow2);
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: url(../../assets/bg1.jpg);
+	background-size: cover;
+}
+.mtable >table{
+	width: 100%;
+}
+.mtable > table >tr> th{
+	padding: 10px;
+	background-color: var(--bg3);
+	color: var(--textcolor4);
+	font-weight: bold;
+}
+.mtable > table >tr> td{
+	padding: 10px;
+	font-weight: bold;
+}
+.mtable > table >tr:nth-child(odd){
+	background-color: var(--bg4);
+}
+.mtable > table >tr:nth-child(even){
+	background-color: var(--bg8);
+}
+
+
+// Buttons
+.mcontroller-button-box{
+	margin-right: 15px;
+	background-color: var(--bg1);
+	border-radius: 5px;
+	box-shadow: 0 1px 5px 1px var(--shadow1);
+}
+.mcontroller-button-add{
+	border: 0;
+	font-weight: bold;
+	padding: 5px 10px;
+	border-radius: 5px;
+	background-color: var(--bg2);
+	color: var(--textcolor1);
+	// background-color: transparent;
+}
+.mcontroller-button-search-start{
+	border: 0;	
+	font-weight: bold;
+	padding: 5px 10px;
+	background-color: var(--bg2);
+	color: var(--textcolor1);
+	// background-color: transparent;
+}
+.mcontroller-button-search-stop{
+	border: 0;
+	font-weight: bold;
+	padding: 5px 10px;
+	border-radius: 0 5px 5px 0;
+	background-color: var(--bg2);
+	color: var(--textcolor1);
+	// background-color: transparent;
+}
+.mform-button{
+	font-weight: bold;
+	margin: 5px;
+	padding: 0 10px;
+	border-radius: 5px;
+	border: 0;
+	color: var(--textcolor1);
+	background-color: var(--bg2);
+}
+.mtable-button{
+	margin: 5px;
+	padding: 5px 10px;
+	border: 0;
+	background-color: var(--bg2);
+	border-radius: 5px;
+	font-weight: bold;
+	color: var(--textcolor1);
+}
+.mtable-title-button{
+	border: 0;
+	color: inherit;
+	font-weight: inherit;
+	background-color: transparent;
+}
+.mtable-title-button:hover{
+	color: var(--textcolor2);
+}
+.add-button:hover{
+	background-color: var(--bg5);
+}
+.delete-button:hover{
+	background-color: var(--bg6);
+}
+.edit-button:hover{
+	background-color: var(--bg7);
+}
+
+// Inputs
+.mform-input,.mcontroller-input{
+	border: 0;
+	background-color: var(--bg1);
+	padding: 5px 10px;
+	border-radius: 5px;
+	outline: none;
+	color: var(--textcolor3);
+}
+
+.mform-input::placeholder,.mcontroller-input::placeholder{
+	color: var(--textcolor2);
+}

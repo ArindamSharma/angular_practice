@@ -1,0 +1,72 @@
+<p class="heading">Task456merge :Table Generation with Addition Deletion and Editing with Sort and Form Validation</p>
+
+<div class="list">
+	<div class="mcontroller-button-frame">
+		<div class="mcontroller-button-box">
+			<button class="mcontroller-button-add add-button" (click)="onAdditionStart()">Add Employee</button>
+		</div>
+		<div class="mcontroller-button-box">
+			<button class="mcontroller-button-add add-button" (click)="addTestEntry()">Add Test Employee</button>
+		</div>
+		<div class="mcontroller-button-box">
+			<input class="mcontroller-input" type="text" [(ngModel)]="search_value" placeholder="Search Employee" (change)="onSearchStart()">
+			<!-- <button class="mcontroller-button-search-start add-button" (click)="onSearchStart()">O</button> -->
+			<button class="mcontroller-button-search-stop delete-button" (click)="onSearchStop()">X</button>
+		</div>
+		<!-- For Searching -->
+	</div>
+	<!-- For Adding/Updating Employee -->
+	<div class="mform" *ngIf="showForm">
+		<div class="mform-entry">
+			<label for="" class="mform-field">Full Name</label>
+			<input class="mform-input" type="text" placeholder="Full Name" [(ngModel)]="empName">
+		</div>
+		<div class="mform-entry">
+			<label for="" class="mform-field">Department</label>
+			<input class="mform-input" type="text" placeholder="Department Name" list="dept-sugession"
+				[(ngModel)]="empDept">
+			<datalist class="" id="dept-sugession">
+				<option value="IT">IT</option>
+				<option value="HR">HR</option>
+				<option value="Dev">Dev</option>
+				<option value="System">System</option>
+				<option value="Staff">Staff</option>
+			</datalist>
+		</div>
+		<div class="mform-button-box">
+			<button *ngIf="addition" class="mform-button add-button" (click)="onAdd()">Add</button>
+			<button *ngIf="!addition" class="mform-button add-button" (click)="onUpdate(null)">Update</button>
+			<button class="mform-button delete-button" (click)="closeForm()">X</button>
+		</div>
+	</div>
+	<div class="mtable">
+		<table>
+			<tr>
+				<th> </th>
+				<th>UUID</th>
+				<th>
+					<button class="mtable-title-button" (click)="onSort('name')">Emp Name</button>
+				</th>
+				<th>
+					<button class="mtable-title-button" (click)="onSort('dept')">Department</button>
+				</th>
+				<th>Action</th>
+			</tr>
+			<tr *ngFor="let item of emplist | paginate: { itemsPerPage: _itemsPerPage, currentPage: _currentPage }">
+				<td><img src="{{item.emp_avatar}}" alt="" srcset="" width="50" height="50" [style.borderRadius.px]="10">
+				</td>
+				<td>{{item.id}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.dept}}</td>
+				<td>
+					<div class="table-button-frame">
+						<button class="mtable-button edit-button" (click)="onUpdate(item.id)">Edit</button>
+						<button class="mtable-button delete-button" (click)="onDelete(item.id)">Delete</button>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p *ngIf="emplist?.length==0">No Data <span *ngIf="searchStart">found for {{search_value}}</span></p>
+		<pagination-controls (pageChange)="_currentPage = $event"></pagination-controls>
+	</div>
+</div>

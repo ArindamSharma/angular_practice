@@ -1,0 +1,19 @@
+<h2>Task1 : Get Http Client By Angular</h2>
+<table border="1">
+  <tr>
+    <th>{{"Name"}}</th>
+    <th>{{"Position"}}</th>
+    <th>{{"Office"}}</th>
+    <th>{{"Salary"}}</th>
+    <th>{{"Edit"}}</th>
+    <th>{{"Delete"}}</th>
+  </tr>
+  <tr *ngFor="let ele of newdata.list;">
+    <td>{{ele.name}}</td>
+    <td>{{ele.position}}</td>
+    <td>{{ele.office}}</td>
+    <td>{{ele.salary}}</td>
+    <td>{{ele.edit}}</td>
+    <td>{{ele.delete}}</td>
+  </tr>
+</table>

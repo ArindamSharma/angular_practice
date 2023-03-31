@@ -1,0 +1,19 @@
+
+/node_modules
+npm-debug.log
+yarn-error.log
+
+.vscode
+# Miscellaneous
+.angular
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+*.zip

@@ -1,0 +1,37 @@
+<h2 class="pageHeading">Task3 : Post,Put,Delete Simulate</h2>
+
+<div class="mconainter">
+	<div class="">
+		<h2>EMPLOYES</h2>
+		<p>Here are employes list</p>
+		<div class="" *ngIf="showLoading">Loading...</div>
+	
+		<div *ngFor="let emp of employes" class="mcard">
+			<img class="" src="{{ emp.emp_avatar }}" height="110" width="110">
+			<div class="mcard-body">
+				<h5 class="mcard-title">{{ emp.full_name }}</h5>
+				<h5 class="mcard-title"><i>{{ emp.unit }}</i></h5>
+				<button class="mbtn" type="button" (click)="onDeleteAction(emp.id)">Delete</button>
+				<button class="mbtn" type="button" (click)="onEditAction(emp.id)">Edit</button>
+			</div>
+		</div>
+	</div>
+	<form class="mform">
+		<h4 *ngIf="addition">Add Employee</h4>
+		<h4 *ngIf="!addition">Update Employee</h4>
+		<div class="mform-entry">
+			<label class="">Full Name</label>
+			<input type="text" name="field1" class="" [(ngModel)]="employeeName" placeholder="Full Name">
+		</div>
+		<div class="mform-entry">
+			<label class="">Subject</label>
+			<select class="" name="field4" [(ngModel)]="selectedDepart">
+				<option value="IT">IT</option>
+				<option value="AA">AA</option>
+				<option value="HR">HR</option>
+			</select>
+		</div>
+		<button class="mbtn" (click)="onAddEmployeeAction()" type="button" *ngIf="addition">Add</button>
+		<button class="mbtn" (click)="onEditAction(null)" type="button" *ngIf="!addition">Update</button>
+	</form>
+</div>
