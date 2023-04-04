@@ -68,6 +68,9 @@
 .mform-entry{
 	padding: 5px;
 }
+.mform-entry input{
+	transition: all 0.1s ease-out;
+}
 .mform-field{
 	padding-right: 10px;
 	font-weight: bold;

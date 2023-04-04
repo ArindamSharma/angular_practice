@@ -19,11 +19,11 @@
 	<div class="mform" *ngIf="showForm">
 		<div class="mform-entry">
 			<label for="" class="mform-field">Full Name</label>
-			<input class="mform-input" type="text" placeholder="Full Name" [(ngModel)]="empName">
+			<input class="mform-input" type="text" placeholder="Full Name" [(ngModel)]="empName" [ngStyle]="{'background-color': empNamebg}">
 		</div>
 		<div class="mform-entry">
 			<label for="" class="mform-field">Department</label>
-			<input class="mform-input" type="text" placeholder="Department Name" list="dept-sugession"
+			<input class="mform-input" type="text" placeholder="Department Name" list="dept-sugession" [ngStyle]="{'background-color': empDeptbg}"
 				[(ngModel)]="empDept">
 			<datalist class="" id="dept-sugession">
 				<option value="IT">IT</option>

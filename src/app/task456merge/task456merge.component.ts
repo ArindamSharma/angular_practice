@@ -1,5 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import { DatasimService } from './datasim.service';
+import { delay } from 'rxjs';
 
 @Component({
 	selector: 'app-task456merge',
@@ -24,20 +25,27 @@ export class Task456mergeComponent implements OnInit {
 	empName="";
 	tmpindex:number=-1;
 	sortOrder:any={};
+	empNamebg:string="";
+	empDeptbg:string="";
 
 
 	constructor(private employeService: DatasimService) { }
 	ngOnInit(): void {
 		this.getAllEmployesFromServer();
-		// console.log(this.emplist);
+		setTimeout(()=>{
+			for(let x=0;x<12;x++){
+				this.addTestEntry();
+			}
+		},1);
 	}
 
 	avatarGenerator(name:string){
 		let faceAvatar="https://robohash.org/"+name+".jpg?size=36x36&set=set"+Math.round(Math.random()*5);
 		let simpleAvatar="https://ui-avatars.com/api/?name="+name+"&background=random&color=white&font-size=0.5&length=2&bold=1";
 		// console.log(simpleAvatar);
-		return simpleAvatar;
+		// return simpleAvatar;
 		// return faceAvatar;
+		return Math.round(Math.random()*2)==1?simpleAvatar:faceAvatar;
 	}
 
 	getAllEmployesFromServer() {
@@ -54,19 +62,29 @@ export class Task456mergeComponent implements OnInit {
 	}
 
 	addValidation(emp:any):boolean{
+		let e=true;
 		if (
 			emp.name == undefined ||
 			emp.name == null ||
 			emp.name == ""
 		) {
-			alert("Please Enter Full Name");
-			return false;
+			this.empNamebg="var(--bg6)";
+			setTimeout(()=>{
+				this.empNamebg="";
+			},1000);
+			// alert("Please Enter Full Name");
+			e=false;
 		}
 		if (emp.dept == undefined || emp.dept == null || emp.dept == "") {
-			alert("Please Select A Department");
-			return false;
+			
+			this.empDeptbg="var(--bg6)";
+			setTimeout(()=>{
+				this.empDeptbg="";
+			},1000);
+			// alert("Please Select A Department");
+			e=false;
 		}
-		return true;
+		return e;
 	}
 	addTestEntry(){
 		let things = ['Johny Walker', 'Kishor Kumar', 'Mahesh Bhat'];
@@ -147,6 +165,10 @@ export class Task456mergeComponent implements OnInit {
 			console.log("Hello",updatedEmp);
 			if (!this.addValidation(updatedEmp)) return;
 			this.updateEmployeeToServer(updatedEmp);
+			this.showForm=false;
+			this.addition=true; 
+			this.empName="";
+			this.empDept="";
 		}
 	}
 	onDelete(empid:any){
